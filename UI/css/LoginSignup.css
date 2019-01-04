@@ -61,7 +61,6 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .header {
   overflow: hidden;
   background-color: #fff;
@@ -215,8 +214,19 @@ body {
     padding:20px;
     margin-top:20px;
     color:#ffffff;
-    background-color:#AE110B;
-    text-align: center;
+    background-color:#AE110B;  
+   bottom:0;
+   width:100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .login-pic{
+      display: none;
+    }
+    .wrap-login {
+  width: 560px;
+  padding: 57px 40px 23px 35px;
+}
   }
 
 
