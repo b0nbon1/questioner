@@ -182,9 +182,16 @@ nav .header-right {
     color: #AE110B;
   }
   .txt1 {
+
     font-size: 16px;
-    line-height: 4;
-    color: #cccccc;
+    line-height: 1px;
+    color: #999999;
+  }
+  
+  .txt2 {
+    font-size: 16px;
+    line-height: 1px;
+    color: #fff;
   }
 /* Sidebar */
 aside#sidebar{
