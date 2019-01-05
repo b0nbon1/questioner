@@ -1,0 +1,134 @@
+
+h2 {
+    color: #fff;
+    margin: 20px auto 80px;
+    font-size: 38px;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+  h5{
+    text-align: center;
+  }
+  details {
+    overflow: none;
+    width: 75%;
+    min-height: 5px;
+    max-width: 700px;
+    padding: 45px 70px 45px 45px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 22px;
+    background-color: #735F46;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: all .3s;
+  }
+  
+  details + details {
+    margin-top: 20px;
+  }
+  
+  details[open] {
+    min-height: 50px;
+    background-color: #735F46;
+    box-shadow: 2px 2px 20px rgba(0,0,0,.2);
+  }
+  
+  details p {
+    color: #fff;
+    font-weight: 300;
+  }
+  details ul{
+      margin-top: 90px;
+  }
+  .Avatar {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  summary {
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+
+  summary:focus {
+    outline: none;
+  }
+  
+  summary::-webkit-details-marker {
+    display: none
+  }
+  
+  summary::after {
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-font-smoothing: antialiased;
+    content: url("../images/icon/order.svg");
+    transform: translateY(-50%);
+    transition: .3s ease;
+  }
+  
+  details[open] summary::after {
+    content: url("../images/icon/order.svg");
+    font-size: 30px;
+    top: 0;
+    transform: translateY(0);
+    transition: .3s ease;
+  }
+  
+  details[open] summary:hover::after {
+    animation: pulse 1s ease;
+  }
+  
+  @keyframes pulse {
+    25% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  hr.comment-header {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+  }
+  hr.comments-line {
+    border-top: 3px double #8c8b8b;
+  }
+  .button {
+    cursor: pointer;
+    display: inline-block;
+    background: grey;
+    color: #fff;
+    margin-top: 20px;
+    padding: 20px 30px;
+    transition: all 0.75s ease;
+  }
+  .button.rating-up:hover {
+    background: limegreen;
+  }
+  .button.rating-down:hover {
+    background: red;
+  }
+  
+  .counter {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid grey;
+    display: inline-block;
+    vertical-align: top;
+  }
