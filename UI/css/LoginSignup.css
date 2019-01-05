@@ -60,11 +60,13 @@ button:hover {
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  background-color: #24241C;
 }
 .header {
   overflow: hidden;
-  background-color: #fff;
-  padding: 20px 10px;
+  background-color: #24241C;;
+  padding: 10px 10px;
   height: auto;
   display: block;
   border-width: 100%;
@@ -75,7 +77,7 @@ body {
 
 .header a {
   float: left;
-  color: black;
+  color: #AE110B;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -113,7 +115,7 @@ body {
 .txt2 {
   font-size: 16px;
   line-height: 4;
-  color: #666666;
+  color: #fff;
 }
 
 
@@ -122,8 +124,9 @@ body {
 
 
 .wrap-login {
-  width: 960px;
-  background: #fff;
+  width: 70%;
+  margin: 1% 15%;
+  background: #735F46;
   border-radius: 10px;
   overflow: hidden;
   display: -webkit-box;
