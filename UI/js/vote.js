@@ -8,10 +8,10 @@ $(".rating").each(function() {
 	$(this)
 		.find(".rating-up")
 		.click(function() {
-			if (voteAmount < 10) {
+			if (voteAmount < 100) {
 				voteAmount++;
 				$(this)
-					.siblings(".counter")
+					.siblings(".counter-up")
 					.text(voteAmount);
 			} else {
 				alert("Maximum votes reached! Stop clicking!");
@@ -22,10 +22,10 @@ $(".rating").each(function() {
 		.find(".rating-down")
 		.click(function() {
 
-			if (voteAmount > 0) {
-				voteAmount--;
+			if (voteAmount < 100) {
+				voteAmount++;
 				$(this)
-					.siblings(".counter")
+					.siblings(".counter-down")
 					.text(voteAmount);
 			} else {
 				alert("Minimum votes reached! Stop clicking!");

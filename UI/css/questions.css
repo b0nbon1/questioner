@@ -138,8 +138,8 @@ h2 {
     display: inline-block;
     background: grey;
     color: #fff;
-    margin-top: 20px;
-    padding: 20px 30px;
+    margin-top: 40px;
+    padding: 2px 5px;
     transition: all 0.75s ease;
   }
   .button.rating-up:hover {
@@ -150,9 +150,9 @@ h2 {
   }
   
   .counter {
-    margin-top: 20px;
-    padding: 10px;
-    border: 2px solid grey;
+    width:100%;
+    margin-top: 1px;
+    text-align: center;
     display: inline-block;
     vertical-align: top;
   }
