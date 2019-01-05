@@ -10,7 +10,6 @@
     display: inline-block;
     font-size: 12px;
     text-transform: capitalize;
-    border-radius: 20px;
     margin: 2px 1px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;

@@ -1,4 +1,4 @@
-
+  @import "style.css";
 h2 {
     color: #fff;
     margin: 20px auto 80px;
@@ -132,3 +132,62 @@ h2 {
     display: inline-block;
     vertical-align: top;
   }
+  .container-quiz{
+    overflow: none;
+    width: 100%;
+    min-height: 5px;
+    padding: 5px 70px 45px 45px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    position: relative;
+    font-size: 22px;
+    background-color: #735F46;
+    box-sizing: border-box;
+    transition: all .3s;
+  }
+  textarea {
+    margin-top: 10px;
+    margin-left: 30%;
+    width: 500px;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+    border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+    border-image: none;
+    border-radius: 6px 6px 6px 6px;
+    border-style: none solid solid none;
+    border-width: medium 1px 1px medium;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    color: #3d3b3b;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+  }
+  textarea:focus {
+    background: none repeat scroll 0 0 rgb(156, 153, 153);
+    outline-width: 0;
+}
+.btn-submit{
+    margin-left: 45%;
+    margin-top: 5px;
+    background-color: #ada7a7;
+    border: none;
+    color: #111;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    text-transform: capitalize;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.btn-submit:hover {
+  background-color: #f44336;
+  color: white;
+}
