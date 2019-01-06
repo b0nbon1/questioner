@@ -25,8 +25,18 @@
     background-color: #f44336;
     color: white;
   }
+  .btn-block {
+    width: 70%;
+    background-color: rgb(22, 150, 11);
+    margin-left: 15%
+}
+
+.btn-block:hover{
+ background-color: #fff;
+}
+
   .tag {
-    background-color: rgb(70, 71, 67); /* Green */
+    background-color: rgb(70, 71, 67);
     border: none;
     color: white;
     padding: 5px;
