@@ -1,0 +1,14 @@
+@import "homepage.css";
+
+.create{
+    margin: 20px;
+    border-radius: 5px;
+}
+.create:hover{
+    background-color: rgb(49, 174, 11);
+    color: #fff;
+}
+.del{
+    background-color: #AE110B;
+}
+
