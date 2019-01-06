@@ -1,0 +1,220 @@
+@import "homepage.css";
+@import "questions.css";
+/* Layout styles -----------------------------------*/
+@media (min-width: 620px) {
+    main {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    
+    section {
+      break-inside: avoid;
+    }
+  }
+  
+  @media (min-width: 960px) {
+    main {
+       column-count: 3;
+    }
+  }
+  
+  /* styles */
+  
+  :root {
+    --red: ;
+  }
+  
+  
+  main {    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+  }
+  
+  .title {
+    font-size: 2.6em;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px
+  }
+  
+  .figure-img {
+    display: block;
+    width: 100%;
+    object: fit;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  p {
+    margin-bottom: 1em;
+    padding: 0 10px;
+    color: #fff;
+  }
+  
+  section {
+    border-top: 3px solid #AE110B;
+    border-radius: 3px;
+    background-color:#735F46;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .section-img {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    float: left;
+  }
+  
+  .bigtitle {
+    padding: 0;
+  }
+  
+  .bigtitle-title {
+    color: white;
+    text-align: center;
+    background-color: #AE110B;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  
+  .bigbottom-link {
+    background-color: var(--green);
+    color: white;
+  }
+    .link-hide{
+      color: 111 !important;
+  }
+  
+  .icon {
+    padding-right: 10px;
+  }
+
+  .profile {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  @media (min-width: 620px) {
+    .options-link {
+      font-size: 1.4em;
+    }
+  }
+  .tag {
+    background-color: rgb(70, 71, 67); /* Green */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+p .tag{
+    display: inline-flex;
+}
+
+  #meetup {
+    max-width:900px;
+    margin:0 auto; /*center aligned*/
+    padding:0;
+    font-size:0; /* Remember to change it back to normal font size if have captions */
+    list-style:none;
+    background-color:#735F46;
+}
+ul#meetup {
+    margin:20px ;
+}
+#meetup li {
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    width:20%;
+    vertical-align:middle;
+    box-sizing: content-box;
+    margin:2px;
+    padding:0;
+}
+        
+/* The wrapper for each item */
+.meetup-cell {
+    /*margin:12px;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+    display:block;
+    position: relative;
+    overflow:hidden;
+}
+        
+/* If have the image layer */
+.meetup-img {
+    display:block;
+    width: 100%;
+    height: auto;
+    border:none;
+    transform:scale(1);
+    transition:all 1s;
+}
+
+#meetup li:hover .meetup-img {
+    transform:scale(1.05);
+    opacity:0.3;
+    background-color: #111;
+}
+
+.meetup-text {
+    display:block;
+    padding:0;
+    box-sizing:border-box;
+    position:absolute;
+    left:0;
+    width:100%;
+    text-align:center;
+    text-transform:capitalize;
+    font-size:10px;
+    font-weight:bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight:normal!important;
+    top:40%;
+    color: #fff;
+    opacity:0;
+    filter:alpha(opacity=0);/*For older IE*/
+    transform:translateY(-20px);
+    transition:all .3s;
+}
+#meetup li:hover .meetup-text {
+    transform:translateY(0px);
+    opacity:0.9;
+}
+
+@media (max-width: 9000px) {
+    #meetup li {
+        width:25%;
+    }
+}
+
+@media (max-width: 700px) {
+    #meetup li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 550px) {
+    #meetup li {
+        width:50%;
+    }
+}
