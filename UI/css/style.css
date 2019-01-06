@@ -25,6 +25,23 @@
     background-color: #f44336;
     color: white;
   }
+  .tag {
+    background-color: rgb(70, 71, 67); /* Green */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+p .tag{
+    display: inline-flex;
+}
 
   body { 
     margin: 0;
