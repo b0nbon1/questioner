@@ -1,4 +1,4 @@
-@import "homepage.css";
+@import "style.css";
 
 .main-mu-container{
     width:80%;
@@ -23,7 +23,7 @@
     width:20%;
     margin-top:1px;
   }
-  
+
 #main  aside#sidebar .side-bg{
     margin-top:5%;
     padding:5px;

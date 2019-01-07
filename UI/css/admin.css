@@ -1,7 +1,8 @@
-@import "homepage.css";
+@import "style.css";
 
 h1{
     text-align: center;
+    color: #fff;
 }
 
 .create{
