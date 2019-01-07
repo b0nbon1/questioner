@@ -1,104 +1,4 @@
-@import "animations.css";
-
-a {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px;
-}
-
-a:focus {
-  outline: none !important;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #AE110B;
-}
-
-
-p { 
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px;
-}
-
-ul, li {
-  margin: 0px;
-  list-style-type: none;
-}
-
-
-input {
-  outline: none;
-  border: none;
-}
-
-textarea {
-  outline: none;
-  border: none;
-}
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
-}
-
-
-button {
-  outline: none !important;
-  border: none;
-  background: transparent;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-* {box-sizing: border-box;}
-
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  position: relative;
-  background-color: #24241C;
-}
-.header {
-  overflow: hidden;
-  background-color: #24241C;;
-  padding: 10px 10px;
-  height: auto;
-  display: block;
-  border-width: 100%;
-  border-bottom: 5px solid #AE110B;
-  border-bottom-style:inset;
-  border-radius: 25px;
-}
-
-.header a {
-  float: left;
-  color: #AE110B;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 25px;
-}
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header-right {
-  float: right;
-}
-
-
-
-
-
+@import "homepage.css";
 
 .txt1 {
 
@@ -112,11 +12,6 @@ body {
   line-height: 4;
   color: #fff;
 }
-
-
-
-
-
 
 .wrap-login {
   width: 70%;
@@ -181,8 +76,6 @@ body {
   padding: 0 30px 0 68px;
 }
 
-
-
 .container-login-form-btn {
   width: 100%;
   padding-top: 20px;
@@ -199,6 +92,7 @@ body {
   align-items: center;
   padding: 0 25px;
 }
+
 .login-form-btn a{
     text-decoration: none;
 }
@@ -207,24 +101,15 @@ body {
   background: #333333;
 }
 
-.footer{
-    padding:20px;
-    margin-top:20px;
-    color:#ffffff;
-    background-color:#AE110B;  
-   bottom:0;
-   width:100%;
+@media only screen and (max-width: 1000px) {
+  .login-pic{
+    display: none;
   }
-
-  @media only screen and (max-width: 1000px) {
-    .login-pic{
-      display: none;
-    }
-    .wrap-login {
+  .wrap-login {
   width: 560px;
   padding: 57px 40px 23px 35px;
-}
   }
+}
 
 
 

@@ -5,6 +5,7 @@
     margin:1% 5%;
     overflow:hidden;
 }
+
 .container-detail{
     float:left;
     width:75%;
@@ -22,6 +23,7 @@
     width:20%;
     margin-top:1px;
   }
+  
 #main  aside#sidebar .side-bg{
     margin-top:5%;
     padding:5px;

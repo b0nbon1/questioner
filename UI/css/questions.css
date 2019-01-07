@@ -8,9 +8,11 @@ h2 {
     letter-spacing: 2px;
     line-height: 1.5;
   }
+
   h5{
     text-align: center;
   }
+
   details {
     overflow: none;
     width: 75%;
@@ -41,12 +43,15 @@ h2 {
     color: #fff;
     font-weight: 300;
   }
+
   details ul{
       margin-top: 40px;
   }
+
   details ul li .Avatar{
     width:30px;
   }
+
   details .comment-box {
     width: 300px;
     height: 50px;
@@ -54,6 +59,7 @@ h2 {
     margin-top: 10px;
     font-size: 16px;
   }
+
   details .btn-comment{
     display: block;
     background-color: #ada7a7;
@@ -66,6 +72,7 @@ h2 {
     text-transform: capitalize;
     cursor: pointer;
   }
+
   .Avatar {
     width: 90px;
     float: left;
@@ -124,15 +131,18 @@ h2 {
       transform: scale(1);
     }
   }
+
   hr.comment-header {
     height: 10px;
     border: 0;
     margin-top: 10px;
     box-shadow: 0 10px 10px -10px #8c8b8b inset;
   }
+
   hr.comments-line {
     border-top: 3px double #8c8b8b;
   }
+
   .button {
     cursor: pointer;
     display: inline-block;
@@ -142,9 +152,11 @@ h2 {
     padding: 2px 5px;
     transition: all 0.75s ease;
   }
+
   .button.rating-up:hover {
     background: limegreen;
   }
+
   .button.rating-down:hover {
     background: red;
   }
@@ -156,6 +168,7 @@ h2 {
     display: inline-block;
     vertical-align: top;
   }
+
   .container-quiz{
     overflow: none;
     width: 100%;
@@ -169,6 +182,7 @@ h2 {
     box-sizing: border-box;
     transition: all .3s;
   }
+
   textarea {
     margin-top: 10px;
     margin-left: 38%;
@@ -185,10 +199,12 @@ h2 {
     padding: 5px 8px;
     transition: background-color 0.2s ease 0s;
   }
+
   textarea:focus {
     background: none repeat scroll 0 0 rgb(156, 153, 153);
     outline-width: 0;
 }
+
 .btn-submit{
     margin-left: 45%;
     margin-top: 5px;
@@ -205,27 +221,30 @@ h2 {
     transition-duration: 0.4s;
     cursor: pointer;
 }
+
 .btn-submit:hover {
   background-color: #f44336;
   color: white;
 }
+
 .txt4{
   font-size: 18px;
 }
+
 .txt5{
   font-size: 12px;
   font-style: italic;
   line-height: 2;
   color: #999999;
 }
+
 @media only screen and (max-width: 680px) {
   .btn-submit{
     margin-left: auto;
     display: inline;
-}
-textarea, details .comment-box {
+  }
+  textarea, details .comment-box {
   margin-left: 0;
   width: 150px;
-
-}
+  }
 }
