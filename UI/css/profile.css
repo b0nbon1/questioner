@@ -1,4 +1,4 @@
-@import "homepage.css";
+@import "style.css";
 @import "questions.css";
 
 @media (min-width: 620px) {
@@ -37,12 +37,6 @@
     margin-bottom: 20px
   }
   
-  .figure-img {
-    display: block;
-    width: 100%;
-    object: fit;
-  }
-  
   h2 {
     font-size: 1.4em;
     padding: 10px;
@@ -75,16 +69,8 @@
     margin-bottom: 10px;
   }
   
-  .bigbottom-link {
-    background-color: var(--green);
-    color: white;
-  }
-    .link-hide{
-      color: 111 !important;
-  }
-  
-  .icon {
-    padding-right: 10px;
+  .icon{
+    margin-right: 4px;
   }
 
   .profile {
@@ -93,11 +79,6 @@
     margin-bottom: 10px;
   }
   
-  @media (min-width: 620px) {
-    .options-link {
-      font-size: 1.4em;
-    }
-  }
   .tag {
     background-color: rgb(70, 71, 67); /* Green */
     border: none;
@@ -118,18 +99,20 @@ p .tag{
 
   #meetup {
     max-width:900px;
-    margin:0 auto; /*center aligned*/
+    margin:0 auto; 
     padding:0;
-    font-size:0; /* Remember to change it back to normal font size if have captions */
+    font-size:0; 
     list-style:none;
     background-color:#735F46;
 }
+
 ul#meetup {
     margin:20px ;
 }
+
 #meetup li {
     display: inline-block;
-    *display:inline;/*for IE6 - IE7*/
+    *display:inline;
     width:20%;
     vertical-align:middle;
     box-sizing: content-box;
@@ -137,16 +120,12 @@ ul#meetup {
     padding:0;
 }
         
-/* The wrapper for each item */
 .meetup-cell {
-    /*margin:12px;
-    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
     display:block;
     position: relative;
     overflow:hidden;
 }
         
-/* If have the image layer */
 .meetup-img {
     display:block;
     width: 100%;
@@ -178,10 +157,11 @@ ul#meetup {
     top:40%;
     color: #fff;
     opacity:0;
-    filter:alpha(opacity=0);/*For older IE*/
+    filter:alpha(opacity=0);
     transform:translateY(-20px);
     transition:all .3s;
 }
+
 #meetup li:hover .meetup-text {
     transform:translateY(0px);
     opacity:0.9;
