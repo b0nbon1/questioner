@@ -8,7 +8,7 @@ def app():
 
     ''' initialize test to testing mode '''
     app = create_app({
-        'TESTING': True
+        'TESTING': True,
     })
 
     yield app
