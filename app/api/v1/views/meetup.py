@@ -36,7 +36,18 @@ def get_meetup(meetup_id):
     meetup = [
         meetup for meetup in meetups if meetup['id'] == meetup_id]
     if len(meetup) == 0:
-        return make_response(jsonify({"message": "no available questions right now",
+        return make_response(jsonify({"message": "no such available meetup right now",
                                       "status": 404})), 404
     return make_response(jsonify({"status": 200},
                                  {"data": meetup})), 200
+
+
+@meetup.route('/<int:meetup_id>', methods=['DELETE'])
+def delete_question(meetup_id):
+    for meetup in meetups:
+        if (meetup_id) == meetup["id"]:
+            meetups.remove(meetup)
+            return make_response(jsonify({"status": 200},
+                                 {"message": "meetup deleted successful"})), 200
+    return make_response(jsonify({"message": "no such available meetup right now",
+                                      "status": 404})), 404
