@@ -21,7 +21,8 @@ def register():
     if password == confirm_password:
         '''Add user to the data structure'''
         password = generate_password_hash(password)
-        new_user = User(firstname, lastname, othername, PhoneNumber, username, email, password)
+        new_user = User(firstname, lastname, othername,
+                        PhoneNumber, username, email, password)
         add_user = new_user.register_user()
 
         return make_response(jsonify(add_user,
