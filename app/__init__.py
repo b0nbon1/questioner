@@ -9,6 +9,9 @@ def create_app(config_name):
     app.config.from_object(app_config)
     app.config.from_pyfile('config.py')
 
+    from .api.v1.views.auth import auth
+    app.register_blueprint(auth)
+
     # factory set app
     @app.route('/hello')
     def hello():
