@@ -2,7 +2,7 @@ import pytest
 from flask import json
 
 
-class AuthActions(object):
+class Setup_auth():
     def __init__(self, client):
         self._client = client
 
@@ -37,7 +37,7 @@ class AuthActions(object):
 
 @pytest.fixture
 def auth(client):
-    return AuthActions(client)
+    return Setup_auth(client)
 
 
 def test_login(client, auth):
@@ -46,14 +46,14 @@ def test_login(client, auth):
     assert response.status_code == 200
 
 
-@pytest.mark.parametrize(('username', 'password', 'message'), (
-    ('not', 'test', b'user not found'),
-    ('pytest2', 'guess', b'wrong password'),
-    ('pytest2', 'test2guy', b'Successfully Logged In')
+@pytest.mark.parametrize(('username', 'password', 'status_code'), (
+    ('not', 'test', 404),
+    ('pytest2', 'guess', 401),
+    ('pytest2', 'test2guy', 200)
 ))
-def test_login_validate_input(auth, username, password, message):
+def test_login_validate_input(auth, username, password, status_code):
     response = auth.login(username, password)
-    assert message in response.data
+    assert response.status_code == status_code
 
 
 def test_register(client, auth):

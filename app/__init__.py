@@ -12,6 +12,9 @@ def create_app(config_name):
     from .api.v1.views.auth import auth
     app.register_blueprint(auth)
 
+    from .api.v1.views.meetup import meetup
+    app.register_blueprint(meetup)
+
     # factory set app
     @app.route('/hello')
     def hello():

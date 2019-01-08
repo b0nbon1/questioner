@@ -1,5 +1,6 @@
 from flask import Flask, abort, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 
 Users = [
@@ -11,6 +12,7 @@ Users = [
             'PhoneNumber': '2547logintest',
             'email': 'test1@login.com',
             'username': 'pytest',
+            'registered': 'jan 2018',
             'isAdmin': True,
             'password': generate_password_hash("testpytest")
         },
@@ -22,6 +24,7 @@ Users = [
             'PhoneNumber': '2547logintest2',
             'email': 'test2@login.com',
             'username': 'pytest2',
+            'registered': 'jan 2019',
             'isAdmin': False,
             'password': generate_password_hash("test2guy")
         }
@@ -38,6 +41,7 @@ class User(object):
         self.othername = othername
         self.PhoneNumber = PhoneNumber
         self.username = username
+        self.registered = datetime.now()
         self.password = password
 
     def register_user(self):
@@ -49,6 +53,7 @@ class User(object):
             'PhoneNumber': self.PhoneNumber,
             'isAdmin': False,
             "username": self.username,
+            'registered': self.registered,
             "email": self.email,
             "password": self.password
         }
