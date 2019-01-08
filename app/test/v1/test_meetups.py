@@ -31,3 +31,7 @@ def test_create_meetup(client, meetups):
     response = meetups.Create_meetup()
 
     assert response.status_code == 201
+
+
+def test_get_all_meetups(client):
+    assert client.get('/api/v1/meetup/upcoming').status_code == 200
