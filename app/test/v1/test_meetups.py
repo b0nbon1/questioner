@@ -35,3 +35,11 @@ def test_create_meetup(client, meetups):
 
 def test_get_all_meetups(client):
     assert client.get('/api/v1/meetup/upcoming').status_code == 200
+
+
+def test_get_specific_meetup(client):
+    assert client.get('/api/v1/meetup/1').status_code == 200
+
+
+def test_fail_get_specific_meetup(client):
+    assert client.get('/api/v1/meetup/4').status_code == 404
