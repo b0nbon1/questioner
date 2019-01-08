@@ -8,7 +8,7 @@ install:
   - pip3 install pytest-cov
 
 script: 
-  - pytest --with-coverage --cover-package=app
+  - pytest
 
 after_success:
   - coveralls
