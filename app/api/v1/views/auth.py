@@ -41,11 +41,11 @@ def login():
 
     user = User.get_user(username)
     if len(user) == 0:
-            return make_response(jsonify({'message': 'user not found'}), 404)
+        return make_response(jsonify({'message': 'user not found'}), 404)
     else:
         if check_password_hash(user[0]['password'], password):
             return make_response(jsonify({"message":
-                                            "Successfully Logged In"}), 200)
+                                          "Successfully Logged In",
+                                          "status": 200}), 200)
         else:
             return make_response(jsonify({"message": "wrong password"})), 401
-
