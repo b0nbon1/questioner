@@ -41,5 +41,13 @@ def test_get_specific_meetup(client):
     assert client.get('/api/v1/meetup/1').status_code == 200
 
 
-def test_fail_get_specific_meetup(client):
+def test_get_specific_meetup_not_found(client):
     assert client.get('/api/v1/meetup/4').status_code == 404
+
+
+def test_delete_meetup(client):
+    assert client.delete('/api/v1/meetup/1').status_code == 200
+
+
+def test_delete_meetup_not_found(client):
+    assert client.delete('/api/v1/meetup/4').status_code == 404
