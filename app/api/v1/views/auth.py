@@ -25,7 +25,26 @@ def register():
         add_user = new_user.register_user()
 
         return make_response(jsonify(add_user,
-                                     {"message": "user successfull registered!"})), 200
+                                     {"message": "user successfull registered!"})), 201
     else:
         return make_response(
-            jsonify({"message": "Passwords don't match"})), 400
+            jsonify({"message": "Passwords don't match"})), 409
+
+
+@auth.route('/login', methods=['POST'])
+def login():
+    '''login a user to the platform'''
+    data = request.get_json()
+    username = data['username']
+    password = data['password']
+
+    user = User.get_user(username)
+    if len(user) == 0:
+            return make_response(jsonify({'message': 'user not found'}), 404)
+    else:
+        if check_password_hash(user[0]['password'], password):
+            return make_response(jsonify({"message":
+                                            "Successfully Logged In"}), 200)
+        else:
+            return make_response(jsonify({"message": "wrong password"})), 401
+
