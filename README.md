@@ -1,4 +1,7 @@
 # questioner
+
+[![Coverage Status](https://coveralls.io/repos/github/b0nbon1/questioner/badge.svg?branch=develop)](https://coveralls.io/github/b0nbon1/questioner?branch=develop)  [![Build Status](https://travis-ci.org/b0nbon1/questioner.svg?branch=develop)](https://travis-ci.org/b0nbon1/questioner)
+
 this is crowd platform where meetups are created questions are asked
 
 
