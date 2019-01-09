@@ -17,11 +17,16 @@ questions = [
      }
 ]
 
+upvotes = []
+
+downvotes = []
+
 
 class Questions():
     def __init__(self):
         self.questions = questions
-        self.votes = 0
+        self.upvote = upvotes
+        self.downvote = downvotes
 
     def create_question(self, user, meetup, title, body):
         new_question = {
@@ -30,8 +35,22 @@ class Questions():
             "meetup": meetup,
             "title": title,
             "body": body,
-            "voteups": self.votes,
-            "votedowns": self.votes
         }
         self.questions.append(new_question)
         return new_question
+
+    def add_upvote(self, meetup, title, body, question_id):
+        if len(self.upvote) == 0:
+            upvote = {
+                "question_id": question_id,
+                "title": title,
+                "meetup": meetup,
+                "upvotes": 0
+            }
+            upvote
+            return upvote
+        else:
+            upvote = [upvote for upvote in upvotes if
+                      upvote['question_id'] == question_id]
+
+            return upvote
