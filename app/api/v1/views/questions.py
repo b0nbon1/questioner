@@ -41,3 +41,27 @@ def vote_up(question_id):
 
     return make_response(jsonify({'status': 200,
                                   'data': vote})), 200
+
+
+@question.route('/downvote/<int:question_id>', methods=['PATCH'])
+def vote_down(question_id):
+    try:
+        meetup = [question for question in questions if
+                  question['id'] == question_id][0]['meetup']
+        title = [question for question in questions if
+                 question['id'] == question_id][0]['title']
+        body = [question for question in questions if
+                question['id'] == question_id][0]['body']
+    except IndexError:
+        return jsonify(
+            {
+                "status": 500,
+                "error": "error retrieving data"
+            }), 500
+
+    vote = Questions().add_downvote(meetup, title, body, question_id)
+
+    vote['downvotes'] = vote['downvotes'] + 1
+
+    return make_response(jsonify({'status': 200,
+                                  'data': vote})), 200
