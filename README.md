@@ -9,10 +9,12 @@ this is crowd platform where meetups are created questions are asked
 
 
 ## The following are API endpoints enabling one to: 
-* Place a new order for food.
-* Get a list of orders.
-* Fetch a specific order.
-* Update the order status.
+* Create a meetup record.
+* Create a question record.
+* Get a specific meetup record.
+* Get all meetup records.
+* Upvote or downvote a question.
+* Rsvp for a meetup.
 ## Here is a list of the functioning endpoints
 
 | EndPoint                | Functionality        | Routes            |
