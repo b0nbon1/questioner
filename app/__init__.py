@@ -15,6 +15,9 @@ def create_app(config_name):
     from .api.v1.views.meetup import meetup
     app.register_blueprint(meetup)
 
+    from .api.v1.views.questions import question
+    app.register_blueprint(question)
+
     # factory set app
     @app.route('/hello')
     def hello():
