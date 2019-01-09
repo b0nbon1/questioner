@@ -54,3 +54,19 @@ class Questions():
                       upvote['question_id'] == question_id]
 
             return upvote
+
+    def add_downvote(self, meetup, title, body, question_id):
+        if len(self.downvote) == 0:
+            downvote = {
+                "question_id": question_id,
+                "title": title,
+                "meetup": meetup,
+                "downvotes": 0
+            }
+            downvote
+            return downvote
+        else:
+            downvote = [downvote for downvote in downvotes if
+                        downvote['question_id'] == question_id]
+
+            return downvote

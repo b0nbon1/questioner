@@ -21,9 +21,9 @@ class Setup_question():
             content_type='application/json'
         )
 
-    def vote(self):
+    def vote(self, url):
         return self._client.patch(
-            '/api/v1/question/upvote/1',
+            url,
             content_type='application/json'
         )
 
@@ -39,7 +39,13 @@ def test_login(client, questions):
     assert response.status_code == 201
 
 
-def test_vote(client, questions):
-    response = questions.vote()
+def test_voteup(client, questions):
+    response = questions.vote('/api/v1/question/upvote/1')
+
+    assert response.status_code == 200
+
+
+def test_votedown(client, questions):
+    response = questions.vote('/api/v1/question/downvote/1')
 
     assert response.status_code == 200
