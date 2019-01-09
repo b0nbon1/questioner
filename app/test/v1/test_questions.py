@@ -21,6 +21,12 @@ class Setup_question():
             content_type='application/json'
         )
 
+    def vote(self):
+        return self._client.patch(
+            '/api/v1/question/upvote/1',
+            content_type='application/json'
+        )
+
 
 @pytest.fixture
 def questions(client):
@@ -31,3 +37,9 @@ def test_login(client, questions):
     response = questions.Create_question()
 
     assert response.status_code == 201
+
+
+def test_vote(client, questions):
+    response = questions.vote()
+
+    assert response.status_code == 200
