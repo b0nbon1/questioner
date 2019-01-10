@@ -52,11 +52,12 @@ def vote_down(question_id):
                  question['id'] == question_id][0]['title']
         body = [question for question in questions if
                 question['id'] == question_id][0]['body']
+
     except IndexError:
         return jsonify(
             {
                 "status": 500,
-                "error": "error retrieving data"
+                "error": "error retrieving question data"
             }), 500
 
     vote = Questions().add_downvote(meetup, title, body, question_id)

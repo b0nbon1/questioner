@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from datetime import datetime
 
+# damps data for meetups
 meetups = [
         {
             'id': 1,
@@ -30,6 +31,8 @@ meetups = [
             'tags': ['hacking', 'data']
         }
 ]
+
+rsvps = []
 
 
 class Meetup(object):
@@ -61,9 +64,12 @@ class Meetup(object):
             meetup for meetup in meetups if meetup['id'] == meetup_id]
         return user
 
-    def del_user(meetup_id):
-        for meetup in meetups:
-            if (meetup['id'] == meetup_id):
-                meetups.remove(meetup)
-                return meetups
-            return jsonify({'message': 'meetup not found'}), 404
+    def create_rsvp(topic, meetup, status):
+
+        rsvp = {
+            "topic": topic,
+            "meetup": meetup,
+            "status": status
+        }
+
+        return rsvp

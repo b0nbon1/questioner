@@ -3,6 +3,7 @@ from flask import json
 
 
 class Setup_meetup():
+    # setups the tests
     def __init__(self, client):
         self._client = client
 
@@ -22,6 +23,7 @@ class Setup_meetup():
         )
 
 
+# creates fixture meetup
 @pytest.fixture
 def meetups(client):
     return Setup_meetup(client)
