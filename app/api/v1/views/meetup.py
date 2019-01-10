@@ -6,7 +6,7 @@ meetup = Blueprint('meetup', __name__, url_prefix='/api/v1/meetup')
 
 
 # create a meetup
-@meetup.route('/create', methods=['POST'])
+@meetup.route('/', methods=['POST'])
 def create():
     data = request.get_json()
     location = data['location']
