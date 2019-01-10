@@ -5,7 +5,7 @@ from flask import Flask, jsonify, make_response, request, Blueprint
 question = Blueprint('questions', __name__, url_prefix='/api/v1/question')
 
 
-@question.route('/new_question', methods=['POST'])
+@question.route('/', methods=['POST'])
 def ask_question():
     data = request.get_json()
 

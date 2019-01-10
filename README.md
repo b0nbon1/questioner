@@ -37,6 +37,5 @@ this is crowd platform where meetups are created questions are asked
 * open postman and test the endpoints
 * Use pytest to run the the tests
 
-
 # Written by: Bonvic Bundi
 #### Copyright © Andela 2019 
