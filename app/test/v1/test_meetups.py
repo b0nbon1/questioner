@@ -13,7 +13,7 @@ class Setup_meetup():
                               'https://www.gsd.harvard.edu/wp-content/uploads/2017/08/Lib-Lab.jpg'],
                       tags=['python', 'flask']):
         return self._client.post(
-            '/api/v1/meetup/create',
+            '/api/v1/meetup/',
             data=json.dumps({'topic': topic,
                              'location': location,
                              'happeningOn': happeningOn,
