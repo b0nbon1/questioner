@@ -4,7 +4,7 @@ from flask import json
 
 
 def create_app(config_name):
-
+    '''initialize the app and configures it'''
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(app_config)
     app.config.from_pyfile('config.py')

@@ -3,6 +3,7 @@ from flask import json
 
 
 class Setup_auth():
+    # setups the tests
     def __init__(self, client):
         self._client = client
 
@@ -35,6 +36,7 @@ class Setup_auth():
         )
 
 
+# creates a fixture for class auth
 @pytest.fixture
 def auth(client):
     return Setup_auth(client)

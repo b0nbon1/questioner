@@ -3,6 +3,7 @@ from flask import json
 
 
 class Setup_question():
+    # setups the tests
     def __init__(self, client):
         self._client = client
 
@@ -28,12 +29,13 @@ class Setup_question():
         )
 
 
+# creates a fixture for class questions
 @pytest.fixture
 def questions(client):
     return Setup_question(client)
 
 
-def test_login(client, questions):
+def test_create_question(client, questions):
     response = questions.Create_question()
 
     assert response.status_code == 201
@@ -49,3 +51,15 @@ def test_votedown(client, questions):
     response = questions.vote('/api/v1/question/downvote/1')
 
     assert response.status_code == 200
+
+
+def test_fail_votedown(client, questions):
+    response = questions.vote('/api/v1/question/downvote/5')
+
+    assert response.status_code == 500
+
+
+def test_fail_voteup(client, questions):
+    response = questions.vote('/api/v1/question/upvote/5')
+
+    assert response.status_code == 500
