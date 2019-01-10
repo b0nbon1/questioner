@@ -13,7 +13,7 @@ class Setup_question():
                         body='There available by injected humour, or randomised words which don\'t look even slightly believable?'
                         ):
         return self._client.post(
-            '/api/v1/question/new_question',
+            '/api/v1/question/',
             data=json.dumps({'user': user,
                              'meetup': meetup,
                              'title': title,
