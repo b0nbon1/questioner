@@ -53,22 +53,22 @@ def delete_question(meetup_id):
         if (meetup_id) == meetup["id"]:
             meetups.remove(meetup)
             return make_response(jsonify({"status": 200},
-                                 {"message": "meetup deleted successful"})), 200
+                                         {"message": "meetup deleted successful"})), 200
     return make_response(jsonify({"error": "no such available meetup right now",
                                   "status": 404})), 404
 
 
-#creates new meetup
+# creates rsvp to a meetup
 @meetup.route('/<int:meetup_id>/rsvps', methods=['POST'])
 def create_rsvp(meetup_id):
-    #checks if there is such a meetup
+    # checks if there is such a meetup
     try:
         meetup = [meetup for meetup in meetups if
                   meetup['id'] == meetup_id][0]['id']
         topic = [meetup for meetup in meetups if
                  meetup['id'] == meetup_id][0]['topic']
-    
-    #if either the meetup or value is not found
+
+    # if either the meetup or value is not found
     except IndexError:
         return make_response(jsonify(
             {
@@ -79,18 +79,17 @@ def create_rsvp(meetup_id):
     data = request.get_json()
     status = data['status']
     status = status.lower()
-    if not status == 'yes' or status == 'maybe' or status == 'no':
-        return make_response(jsonify(
-            {
-                "status": 406,
-                "error": "there is no such status"
-            })), 406
+    if status == 'yes' or status == 'maybe' or status == 'no':
+        rsvp = Meetup.create_rsvp(topic, meetup, status)
+        rsvps.append(rsvp)
 
-    rsvp = Meetup.create_rsvp(topic, meetup, status)
-    rsvps.append(rsvp)
+        return make_response(jsonify({
+            "status": 201,
+            "data": rsvps
+        })), 201
 
-    return make_response(jsonify({
-        "status": 201,
-        "data": rsvps
-    }))
-
+    return make_response(jsonify(
+        {
+            "status": 406,
+            "error": "there is no such status"
+        })), 406
