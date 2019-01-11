@@ -1,11 +1,13 @@
 from flask import Flask, abort, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
+import uuid
 
 
 Users = [
         {
             "id": 1,
+            "public_id": 'hwfuqkeirhc4253redsf',
             'firstname': 'testlogin',
             'lastname': 'login',
             'othername': 'log',
@@ -18,6 +20,7 @@ Users = [
         },
         {
             "id": 1,
+            "public_id": 'hwfuqkeirhc4253redsf',
             'firstname': 'testlogin2',
             'lastname': 'login2',
             'othername': 'log2',
@@ -35,6 +38,7 @@ class User(object):
 
     def __init__(self, firstname, lastname, othername, PhoneNumber, username, email, password):
         self.user_id = len(Users) + 1
+        self.public_id = str(uuid.uuid4())
         self.email = email
         self.firstname = firstname
         self.lastname = lastname
@@ -47,6 +51,7 @@ class User(object):
     def register_user(self):
         new_user = {
             "id": self.user_id,
+            "public_id": self.public_id,
             'firstname': self.firstname,
             'lastname': self.lastname,
             'othername': self.othername,
@@ -56,18 +61,10 @@ class User(object):
             'registered': self.registered,
             "email": self.email,
             "password": self.password
-        }
-       
+        }       
         return new_user
 
     def get_user(username):
         user = [
             user for user in Users if user['username'] == username]
         return user
-
-    def del_user(self, id):
-        for user in Users:
-            if (user['id'] == id):
-                Users.remove(user)
-                return Users
-            return jsonify({'message': 'user not found'}), 404

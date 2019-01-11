@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, make_response
 from instance.config import app_config
 from flask import json
+from flask_jwt_extended import JWTManager
 
 
 def create_app(config_name):
@@ -8,6 +9,10 @@ def create_app(config_name):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(app_config)
     app.config.from_pyfile('config.py')
+    app.config['JWT_SECRET_KEY'] = 'b0nbon'
+    jwt = JWTManager(app)
+
+    '''registers the blueprints'''
 
     from .api.v1.views.auth import auth
     app.register_blueprint(auth)

@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, make_response, request, Blueprint
 from app.api.v1.models.model_meetups import meetups, Meetup, rsvps
+from flask_jwt_extended import jwt_required
 
 
 meetup = Blueprint('meetup', __name__, url_prefix='/api/v1/meetup')
@@ -7,6 +8,7 @@ meetup = Blueprint('meetup', __name__, url_prefix='/api/v1/meetup')
 
 # create a meetup
 @meetup.route('/', methods=['POST'])
+@jwt_required
 def create():
     data = request.get_json()
     location = data['location']
@@ -25,6 +27,7 @@ def create():
 
 # get a upcoming meetups
 @meetup.route('/upcoming', methods=['GET'])
+@jwt_required
 def get_upcoming():
     upcoming_meetups = meetups[::-1]
     if len(upcoming_meetups) == 0:
@@ -36,6 +39,7 @@ def get_upcoming():
 
 # get specific meetup
 @meetup.route('/<int:meetup_id>', methods=['GET'])
+@jwt_required
 def get_meetup(meetup_id):
     meetup = [
         meetup for meetup in meetups if meetup['id'] == meetup_id]
@@ -48,6 +52,7 @@ def get_meetup(meetup_id):
 
 # deletes a meetup
 @meetup.route('/<int:meetup_id>', methods=['DELETE'])
+@jwt_required
 def delete_question(meetup_id):
     for meetup in meetups:
         if (meetup_id) == meetup["id"]:
@@ -60,6 +65,7 @@ def delete_question(meetup_id):
 
 # creates rsvp to a meetup
 @meetup.route('/<int:meetup_id>/rsvps', methods=['POST'])
+@jwt_required
 def create_rsvp(meetup_id):
     # checks if there is such a meetup
     try:
@@ -72,9 +78,9 @@ def create_rsvp(meetup_id):
     except IndexError:
         return make_response(jsonify(
             {
-                "status": 500,
-                "error": "error retrieving meetup data"
-            })), 500
+                "status": 404,
+                "error": "error can't find meetup data"
+            })), 404
 
     data = request.get_json()
     status = data['status']

@@ -4,8 +4,9 @@ from flask import json
 
 class Setup_meetup():
     # setups the tests
-    def __init__(self, client):
+    def __init__(self, client, headers):
         self._client = client
+        self._headers = headers
 
     def Create_meetup(self, topic='Flask', location='Nairobi',
                       happeningOn='1st Feb',
@@ -19,7 +20,7 @@ class Setup_meetup():
                              'happeningOn': happeningOn,
                              'images': images,
                              'tags': tags}),
-            content_type='application/json'
+            content_type='application/json', headers=self._headers
         )
 
     def rsvp(self, url, status):
@@ -28,14 +29,14 @@ class Setup_meetup():
             data=json.dumps({
                 'status': status
             }),
-            content_type='application/json'
+            content_type='application/json', headers=self._headers
         )
 
 
 # creates fixture meetup
 @pytest.fixture
-def meetups(client):
-    return Setup_meetup(client)
+def meetups(client, headers):
+    return Setup_meetup(client, headers)
 
 
 def test_create_meetup(meetups):
@@ -44,24 +45,24 @@ def test_create_meetup(meetups):
     assert response.status_code == 201
 
 
-def test_get_all_meetups(client):
-    assert client.get('/api/v1/meetup/upcoming').status_code == 200
+def test_get_all_meetups(client, headers):
+    assert client.get('/api/v1/meetup/upcoming', headers=headers).status_code == 200
 
 
-def test_get_specific_meetup(client):
-    assert client.get('/api/v1/meetup/1').status_code == 200
+def test_get_specific_meetup(client, headers):
+    assert client.get('/api/v1/meetup/1', headers=headers).status_code == 200
 
 
-def test_get_specific_meetup_not_found(client):
-    assert client.get('/api/v1/meetup/4').status_code == 404
+def test_get_specific_meetup_not_found(client, headers):
+    assert client.get('/api/v1/meetup/4', headers=headers).status_code == 404
 
 
-def test_delete_meetup(client):
-    assert client.delete('/api/v1/meetup/1').status_code == 200
+def test_delete_meetup(client, headers):
+    assert client.delete('/api/v1/meetup/1', headers=headers).status_code == 200
 
 
-def test_delete_meetup_not_found(client):
-    assert client.delete('/api/v1/meetup/4').status_code == 404
+def test_delete_meetup_not_found(client, headers):
+    assert client.delete('/api/v1/meetup/4', headers=headers).status_code == 404
 
 
 def test_create_rsvp(meetups):
@@ -71,7 +72,7 @@ def test_create_rsvp(meetups):
 
 
 @pytest.mark.parametrize(('url', 'status', 'status_code'), (
-    ('/api/v1/meetup/6/rsvps', 'yes', 500),
+    ('/api/v1/meetup/6/rsvps', 'yes', 404),
     ('/api/v1/meetup/2/rsvps', 'kgggiyt', 406),
     ('/api/v1/meetup/3/rsvps', 'yes', 201),
     ('/api/v1/meetup/3/rsvps', 'maybe', 201),
