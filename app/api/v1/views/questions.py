@@ -1,11 +1,13 @@
 from app.api.v1.models.model_questions import Questions, questions
 from flask import Flask, jsonify, make_response, request, Blueprint
+from flask_jwt_extended import jwt_required
 
 
 question = Blueprint('questions', __name__, url_prefix='/api/v1/question')
 
 
 @question.route('/', methods=['POST'])
+@jwt_required
 def ask_question():
     data = request.get_json()
 
@@ -20,6 +22,7 @@ def ask_question():
 
 
 @question.route('/upvote/<int:question_id>', methods=['PATCH'])
+@jwt_required
 def vote_up(question_id):
     try:
         meetup = [question for question in questions if
@@ -29,11 +32,11 @@ def vote_up(question_id):
         body = [question for question in questions if
                 question['id'] == question_id][0]['body']
     except IndexError:
-        return jsonify(
+        return make_response(jsonify(
             {
-                "status": 500,
-                "error": "error retrieving data"
-            }), 500
+                "status": 404,
+                "error": "error can't find meetup data"
+            })), 404
 
     vote = Questions().add_upvote(meetup, title, body, question_id)
 
@@ -44,6 +47,7 @@ def vote_up(question_id):
 
 
 @question.route('/downvote/<int:question_id>', methods=['PATCH'])
+@jwt_required
 def vote_down(question_id):
     try:
         meetup = [question for question in questions if
@@ -54,11 +58,11 @@ def vote_down(question_id):
                 question['id'] == question_id][0]['body']
 
     except IndexError:
-        return jsonify(
+        return make_response(jsonify(
             {
-                "status": 500,
-                "error": "error retrieving question data"
-            }), 500
+                "status": 404,
+                "error": "error can't find meetup data"
+            })), 404
 
     vote = Questions().add_downvote(meetup, title, body, question_id)
 
