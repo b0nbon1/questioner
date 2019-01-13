@@ -7,16 +7,16 @@ import uuid
 Users = [
         {
             "id": 1,
-            "public_id": 'hwfuqkeirhc4253redsf',
+            "public_id": 'hwfuqkeirc4253redsf',
             'firstname': 'testlogin',
             'lastname': 'login',
             'othername': 'log',
             'PhoneNumber': '2547logintest',
             'email': 'test1@login.com',
-            'username': 'pytest',
+            'username': 'pytest2',
             'registered': 'jan 2018',
             'isAdmin': True,
-            'password': generate_password_hash("testpytest")
+            'password': generate_password_hash("testpytest1")
         },
         {
             "id": 1,
@@ -26,7 +26,7 @@ Users = [
             'othername': 'log2',
             'PhoneNumber': '2547logintest2',
             'email': 'test2@login.com',
-            'username': 'pytest2',
+            'username': 'pytest1',
             'registered': 'jan 2019',
             'isAdmin': False,
             'password': generate_password_hash("test2guy")

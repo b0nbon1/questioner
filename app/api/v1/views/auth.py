@@ -1,7 +1,8 @@
 from flask import Flask, abort, jsonify, make_response, request, Blueprint
 from werkzeug.security import check_password_hash, generate_password_hash
-from app.api.v1.models.model_users import Users, User
 from flask_jwt_extended import create_access_token
+from ..models.model_users import Users, User
+from ..utils.validators import validators
 
 
 auth = Blueprint('auth', __name__, url_prefix='/api/v1/auth')
@@ -10,6 +11,7 @@ auth = Blueprint('auth', __name__, url_prefix='/api/v1/auth')
 @auth.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
+
     username = data['username']
     firstname = data['firstname']
     lastname = data['lastname']
@@ -18,6 +20,38 @@ def register():
     email = data['email']
     password = data['password']
     confirm_password = data['confirm_password']
+
+    '''validations'''
+    data1 = [username, firstname, lastname, othername,
+             PhoneNumber, email, password, confirm_password]
+    for data in data1:
+        if not data:
+            return make_response(jsonify({"error": "all fields required"}), 400)
+
+    validator = validators(username, email, password)
+    check_username = validator.validate_username()
+    username_exist = validator.username_exists()
+    email_exist = validator.email_exists()
+    check_email = validator.valid_email()
+    check_password = validator.validate_password()
+
+    if username_exist is True:
+        return make_response(jsonify({"error": "username exists",
+                                      "status": 409}), 409)
+
+    if email_exist is True:
+        return make_response(jsonify({"error": "email exists",
+                                      "status": 409}), 409)
+
+    if check_username is False:
+        return make_response(jsonify({"error": "invalid username"}), 400)
+
+    if check_email is False:
+        return make_response(jsonify({"error": "invalid email",
+                                      "status": 400}), 400)
+
+    if not check_password:
+        return make_response(jsonify({"error": "invalid password"})), 400
 
     if password == confirm_password:
         '''Add user to the data structure'''
@@ -30,7 +64,7 @@ def register():
                                       "status": 201})), 201
     else:
         return make_response(
-            jsonify({"error": "Passwords don't match"})), 409
+            jsonify({"error": "Passwords don't match"})), 400
 
 
 @auth.route('/login', methods=['POST'])

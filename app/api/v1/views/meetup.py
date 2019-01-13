@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, make_response, request, Blueprint
-from app.api.v1.models.model_meetups import meetups, Meetup, rsvps
-from flask_jwt_extended import jwt_required
+from ..models.model_meetups import meetups, Meetup, rsvps
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from ..models.model_users import Users
 
 
 meetup = Blueprint('meetup', __name__, url_prefix='/api/v1/meetup')
@@ -10,6 +11,13 @@ meetup = Blueprint('meetup', __name__, url_prefix='/api/v1/meetup')
 @meetup.route('/', methods=['POST'])
 @jwt_required
 def create():
+    userid = get_jwt_identity()
+    isAdmin = [u for u in Users if u['public_id'] == userid][0]['isAdmin']
+    if isAdmin is False and len(Users) == 0:
+        return make_response(jsonify({
+                                "error": "Cannot perform this operation",
+                                "status": 401}), 401)
+
     data = request.get_json()
     location = data['location']
     images = data['images']
@@ -41,8 +49,7 @@ def get_upcoming():
 @meetup.route('/<int:meetup_id>', methods=['GET'])
 @jwt_required
 def get_meetup(meetup_id):
-    meetup = [
-        meetup for meetup in meetups if meetup['id'] == meetup_id]
+    meetup = Meetup.get_meetup(meetup_id)
     if len(meetup) == 0:
         return make_response(jsonify({"error": "no such available meetup right now",
                                       "status": 404})), 404
@@ -68,6 +75,7 @@ def delete_question(meetup_id):
 @jwt_required
 def create_rsvp(meetup_id):
     # checks if there is such a meetup
+    
     try:
         meetup = [meetup for meetup in meetups if
                   meetup['id'] == meetup_id][0]['id']
@@ -75,7 +83,7 @@ def create_rsvp(meetup_id):
                  meetup['id'] == meetup_id][0]['topic']
 
     # if either the meetup or value is not found
-    except IndexError:
+    except:
         return make_response(jsonify(
             {
                 "status": 404,
