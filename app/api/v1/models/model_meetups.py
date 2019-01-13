@@ -47,7 +47,7 @@ class Meetup(object):
         self.tags = tags
 
     def create_meetup(self):
-        new_user = {
+        new_meetup = {
             "id": self.meetup_id,
             'location': self.location,
             'createdOn': self.createdOn,
@@ -56,13 +56,13 @@ class Meetup(object):
             'happeningOn': self.happeningOn,
             "tags": self.tags,
         }
-       
-        return new_user
+
+        return new_meetup
 
     def get_meetup(meetup_id):
         meetup = [
             meetup for meetup in meetups if meetup['id'] == meetup_id]
-        return user
+        return meetup
 
     def create_rsvp(topic, meetup, status):
 
