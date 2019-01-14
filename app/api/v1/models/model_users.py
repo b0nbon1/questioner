@@ -9,20 +9,19 @@ Users = []
 
 class User(object):
 
-    def __init__(self, firstname, lastname, othername, PhoneNumber, username, email, password):
-        self.public_id = str(uuid.uuid4())
-        self.email = email
-        self.firstname = firstname
-        self.lastname = lastname
-        self.othername = othername
-        self.PhoneNumber = PhoneNumber
-        self.username = username
-        self.password = password
+    def __init__(self, *args):
+        self.firstname = args[0]
+        self.lastname = args[1]
+        self.othername = args[2]
+        self.PhoneNumber = args[3]
+        self.username = args[4]
+        self.email = args[5]
+        self.password = args[6]
 
     def register_user(self):
         new_user = {
             "id": len(Users) + 1,
-            "public_id": self.public_id,
+            "public_id": str(uuid.uuid4()),
             'firstname': self.firstname,
             'lastname': self.lastname,
             'othername': self.othername,
