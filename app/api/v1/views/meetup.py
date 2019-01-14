@@ -15,8 +15,8 @@ def create():
     isAdmin = [u for u in Users if u['public_id'] == userid][0]['isAdmin']
     if isAdmin is False and len(Users) == 0:
         return make_response(jsonify({
-                                "error": "Cannot perform this operation",
-                                "status": 401}), 401)
+            "error": "Cannot perform this operation",
+            "status": 401}), 401)
 
     data = request.get_json()
     location = data['location']
@@ -70,31 +70,25 @@ def delete_question(meetup_id):
                                   "status": 404})), 404
 
 
-# creates rsvp to a meetup
 @meetup.route('/<int:meetup_id>/rsvps', methods=['POST'])
 @jwt_required
 def create_rsvp(meetup_id):
-    # checks if there is such a meetup
-    
-    try:
-        meetup = [meetup for meetup in meetups if
-                  meetup['id'] == meetup_id][0]['id']
-        topic = [meetup for meetup in meetups if
-                 meetup['id'] == meetup_id][0]['topic']
-
-    # if either the meetup or value is not found
-    except:
+    # creates rsvp to a meetup
+    meet = [meet for meet in meetups if
+            meet['id'] == meetup_id]
+    if len(meet) == 0:
         return make_response(jsonify(
             {
                 "status": 404,
                 "error": "error can't find meetup data"
             })), 404
+    topic = meet[0]['topic']
 
     data = request.get_json()
     status = data['status']
     status = status.lower()
     if status == 'yes' or status == 'maybe' or status == 'no':
-        rsvp = Meetup.create_rsvp(topic, meetup, status)
+        rsvp = Meetup.create_rsvp(topic, meetup_id, status)
         rsvps.append(rsvp)
 
         return make_response(jsonify({
