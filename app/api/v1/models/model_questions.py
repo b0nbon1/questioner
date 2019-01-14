@@ -2,20 +2,7 @@ from flask import Flask, abort, jsonify, make_response, request
 from datetime import datetime
 
 
-questions = [
-    {"id": 1,
-     "user": 1,
-     "meetup": 1,
-     "title": "sql and c#",
-     "body": "How to Validate Where Expression in MS SQL Stored Procedure(Identify SQL Injection) or from C#"
-     },
-    {"id": 2,
-     "user": 2,
-     "meetup": 2,
-     "title": "javascript",
-     "body": "How to Validate Where Expression in MS SQL Stored Procedure(Identify SQL Injection)"
-     }
-]
+questions = []
 
 upvotes = []
 
