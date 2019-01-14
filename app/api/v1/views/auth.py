@@ -87,3 +87,17 @@ def login():
         else:
             return make_response(jsonify({"error": "wrong password",
                                           "status": 401})), 401
+
+
+@auth.route('/update/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    user = [
+        user for user in Users if user['id'] == user_id]
+    if len(user) == 0:
+        return make_response(jsonify({'error': 'user cannot be updated'}), 404)
+    isAdmin = user[0]['isAdmin']
+    isAdmin = True
+
+    return make_response(jsonify(user,
+                                 {"message": "user successfull updated!",
+                                  "status": 201})), 201
