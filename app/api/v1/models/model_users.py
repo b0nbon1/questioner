@@ -4,40 +4,12 @@ from datetime import datetime
 import uuid
 
 
-Users = [
-        {
-            "id": 1,
-            "public_id": 'hwfuqkeirc4253redsf',
-            'firstname': 'testlogin',
-            'lastname': 'login',
-            'othername': 'log',
-            'PhoneNumber': '2547logintest',
-            'email': 'test1@login.com',
-            'username': 'pytest2',
-            'registered': 'jan 2018',
-            'isAdmin': True,
-            'password': generate_password_hash("testpytest1")
-        },
-        {
-            "id": 1,
-            "public_id": 'hwfuqkeirhc4253redsf',
-            'firstname': 'testlogin2',
-            'lastname': 'login2',
-            'othername': 'log2',
-            'PhoneNumber': '2547logintest2',
-            'email': 'test2@login.com',
-            'username': 'pytest1',
-            'registered': 'jan 2019',
-            'isAdmin': False,
-            'password': generate_password_hash("test2guy")
-        }
-    ]
+Users = []
 
 
 class User(object):
 
     def __init__(self, firstname, lastname, othername, PhoneNumber, username, email, password):
-        self.user_id = len(Users) + 1
         self.public_id = str(uuid.uuid4())
         self.email = email
         self.firstname = firstname
@@ -45,12 +17,11 @@ class User(object):
         self.othername = othername
         self.PhoneNumber = PhoneNumber
         self.username = username
-        self.registered = datetime.now()
         self.password = password
 
     def register_user(self):
         new_user = {
-            "id": self.user_id,
+            "id": len(Users) + 1,
             "public_id": self.public_id,
             'firstname': self.firstname,
             'lastname': self.lastname,
@@ -58,10 +29,11 @@ class User(object):
             'PhoneNumber': self.PhoneNumber,
             'isAdmin': False,
             "username": self.username,
-            'registered': self.registered,
+            'registered': datetime.now(),
             "email": self.email,
             "password": self.password
-        }       
+        }
+        Users.append(new_user)
         return new_user
 
     def get_user(username):
