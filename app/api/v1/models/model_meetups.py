@@ -9,14 +9,14 @@ rsvps = []
 
 class Meetup(object):
 
-    def __init__(self, location, images, topic, happeningOn, tags):
+    def __init__(self, *args):
         self.meetup_id = len(meetups) + 1
-        self.location = location
+        self.location = args[0]
         self.createdOn = datetime.now()
-        self.images = images
-        self.topic = topic
-        self.happeningOn = happeningOn
-        self.tags = tags
+        self.images = args[1]
+        self.topic = args[2]
+        self.happeningOn = args[3]
+        self.tags = args[4]
 
     def create_meetup(self):
         new_meetup = {
