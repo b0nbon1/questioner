@@ -49,18 +49,21 @@ def test_voteup(questions):
 
 
 def test_votedown(questions):
-    response = questions.vote('/api/v1/question/downvote/1')
+    questions.Create_question()
+    response = questions.vote('/api/v1/question/downvote/2')
 
     assert response.status_code == 200
 
 
 def test_fail_votedown(questions):
+    questions.Create_question()
     response = questions.vote('/api/v1/question/downvote/5')
 
     assert response.status_code == 404
 
 
 def test_fail_voteup(questions):
+    questions.Create_question()
     response = questions.vote('/api/v1/question/upvote/5')
 
     assert response.status_code == 404

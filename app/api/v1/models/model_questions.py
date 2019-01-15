@@ -4,16 +4,14 @@ from datetime import datetime
 
 questions = []
 
-upvotes = []
-
-downvotes = []
+votes = []
+voters = []
 
 
 class Questions():
     def __init__(self):
         self.questions = questions
-        self.upvote = upvotes
-        self.downvote = downvotes
+        self.votes = votes
 
     def create_question(self, user, meetup, title, body):
         new_question = {
@@ -26,34 +24,57 @@ class Questions():
         self.questions.append(new_question)
         return new_question
 
-    def add_upvote(self, meetup, title, body, question_id):
-        if len(self.upvote) == 0:
-            upvote = {
+    def add_vote(self, question_id, user_id):
+        try:
+                meetup = [question for question in self.questions if
+                          question['id'] == question_id][0]['meetup']
+                title = [question for question in self.questions if
+                         question['id'] == question_id][0]['title']
+                body = [question for question in self.questions if
+                        question['id'] == question_id][0]['body']
+                self.voters(user_id, question_id)
+        except:
+                return False
+        if len(self.votes) == 0:
+            new_vote = {
                 "question_id": question_id,
                 "title": title,
                 "meetup": meetup,
-                "upvotes": 0
-            }
-            upvote
-            return upvote
-        else:
-            upvote = [upvote for upvote in upvotes if
-                      upvote['question_id'] == question_id]
-
-            return upvote
-
-    def add_downvote(self, meetup, title, body, question_id):
-        if len(self.downvote) == 0:
-            downvote = {
-                "question_id": question_id,
-                "title": title,
-                "meetup": meetup,
+                "upvotes": 0,
                 "downvotes": 0
             }
-            downvote
-            return downvote
+            self.votes.append(new_vote)
+            return self.votes
         else:
-            downvote = [downvote for downvote in downvotes if
-                        downvote['question_id'] == question_id]
+            v = [v for v in self.votes if v['question_id'] == question_id]
+            if len(v) == 0:
+                new_vote = {
+                        "question_id": question_id,
+                        "title": title,
+                        "meetup": meetup,
+                        "upvotes": 0,
+                        "downvotes": 0
+                        }
+                self.votes.append(new_vote)
+                return votes
+            else:
+                return votes
 
-            return downvote
+    @classmethod
+    def voters(cls, user_id, question_id):
+        cls.voter = voters
+        cls.user_id = user_id
+        cls.question_id = question_id
+
+        if len(cls.voter) != 0:
+            question = [q for q in cls.voter if
+                        q['question_id'] == cls.question_id]
+            if len(question) != 0:
+                user = [user for user in question if
+                        user['id'] == cls.user_id]
+                if len(user) != 0:
+                    return False
+        
+        new_voter = {'user': cls.user_id,
+                     'question_id': cls.question_id}
+        cls.voter.append(new_voter)
