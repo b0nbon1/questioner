@@ -1,0 +1,30 @@
+@import "style.css";
+
+.main-mu-container{
+    width:80%;
+    margin:1% 5%;
+    overflow:hidden;
+}
+
+.container-detail{
+    float:left;
+    width:75%;
+    list-style: none;
+    padding:20px;
+    border: #cccccc solid 1px;
+    border-radius: 25px;
+    border-style: outset;
+    margin-bottom:5px;
+    background:#735F46;
+}
+
+#main aside#sidebar{
+    float:right;
+    width:20%;
+    margin-top:1px;
+  }
+
+#main  aside#sidebar .side-bg{
+    margin-top:5%;
+    padding:5px;
+  }

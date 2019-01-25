@@ -1,0 +1,89 @@
+@import "style.css";
+
+h1{
+    text-align: center;
+    color: #fff;
+}
+
+.create{
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.create:hover{
+    background-color: rgb(49, 174, 11);
+    color: #fff;
+}
+
+.del{
+    background-color: #AE110B;
+}
+
+.input-control {
+    border: 0;
+    background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+    background-size: 0 2px, 100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom, center calc(100% - 1px);
+    background-color: transparent;
+    transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-weight: 400;
+    padding: 7px 0;
+    width: 100%;
+}
+
+.group{
+    margin-top: 20px;
+}
+
+.form-meetup{
+    margin-left: 10%;
+    width:80%;
+    list-style: none;
+    padding:20px;
+    border: #cccccc solid 1px;
+    border-radius: 25px;
+    border-style: outset;
+    margin-bottom:5px;
+    background:#735F46;
+}
+
+.custom-file-input {
+    color: transparent;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.custom-file-input::before {
+    content: 'Upload image';
+    color: #111;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+.custom-file-input:hover::before {
+    border-color: #111;
+}
+
+.custom-file-input:active {
+    outline: 0;
+}
+
+.custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}

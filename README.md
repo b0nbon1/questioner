@@ -1,3 +1,11 @@
+### questioner
+Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize
+questions to be answered. Other users can vote on asked questions and they bubble to the top
+or bottom of the log.
+
+## Hosted on github pages
+* [Home page](https://b0nbon1.github.io/questioner/UI/templates/index). This page acts as the homepage
+
 # questioner
 
 [![Coverage Status](https://coveralls.io/repos/github/b0nbon1/questioner/badge.svg?branch=develop)](https://coveralls.io/github/b0nbon1/questioner?branch=develop)  [![Build Status](https://travis-ci.org/b0nbon1/questioner.svg?branch=develop)](https://travis-ci.org/b0nbon1/questioner)
@@ -41,4 +49,4 @@ this is crowd platform where meetups are created questions are asked
 * use `pytest -v` to run the tests
 
 # Written by: Bonvic Bundi
-#### Copyright © Andela 2019 
+#### Copyright © b0nbon1 2019 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Only</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+<body>
+    <div class="header">
+		  <a href="index.html" class="logo shake"><img src="../images/onlinelogomaker-010319-1828-2336 .png" class="icon"></a>
+		  <nav>
+                <ul>
+                    <li><a href="index.html" class="shake"><img src="../images/icon/home.svg" class="icon">HOME</a></li>
+                    <li><a href="login.html"  class="header-right shake"><img src="../images/icon/logout.svg" class="icon">Log Out</a></li>
+                    <li><a href="profile.html" class="header-right shake"><img src="../images/icon/user.svg" class="icon">Profile</a></li>
+                    <li><a href="admin.html" class="header-right active shake"><img src="../images/icon/admin-with-cogwheels.svg" class="icon">admin</a></li>     
+                </ul>
+                
+            </nav>
+    </div>
+
+    <article class="top-content">
+        <h1>Create Meetup</h1>
+        <form class="form-meetup">
+            <input type="file" class="custom-file-input">
+            <div class="group">
+                <label>Title</label>
+                <input class="input-control" type="text" placeholder="What is the Title of the Meetup?...">
+            </div>
+
+                        <div class="group">
+                            <label>Description</label>
+                            <textarea class="input-control" placeholder="describe the Meetup here..."></textarea>      
+                        </div>
+                        <div class="group">
+                            <label>Tag</label>
+                            <input class="input-control" type="text" placeholder="e.g python, c++, java, javascript...">
+                        </div>
+                        <div class="group">
+                            <label>Venue</label>
+                            <input class="input-control" type="text" placeholder="State your desired Venue...">
+                        </div>
+                        <div class="group">
+                                <label>Duaration</label>
+                                <input class="input-control" type="text" placeholder="How long will it take...">
+                            </div>
+                            <div class="group">
+                                    <label>scheduled On</label>
+                                    <input class="input-control" type="text" placeholder="Type the date...">
+                                </div>  
+                        <div class="group">
+                              <button class="button btn-block">
+                                  Create Meetup
+                              </button>
+                        </div>
+
+        </form>
+        
+    </article>
+
+<footer>
+    <p>Questioner, Copyright &copy; 2019</p>
+</footer>
+</body>
+</html>
